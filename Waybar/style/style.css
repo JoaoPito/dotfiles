@@ -4,56 +4,32 @@
     border: none;
     border-radius: 0;
     font-family: "JetBrainsMono Nerd Font";
+    /*font-weight: bold;*/
     font-size: 16px;
     min-height: 0;
+    background: transparent;
 }
 
 window#waybar {
-    background-color: alpha(@base, 0.3);
-    color: #2b2b2c;
+    /*background: @base;*/
+    background-color: alpha(@base, 0.25);
+    color: @text;
+
     border-radius: 12px 12px 12px 12px;
 }
 
 tooltip {
-    background: #e7e7ec;
+    background: @base;
     opacity: 0.8;
-    border-radius: 10px;
-    border-width: 2px;
+    border-radius: 12px;
+    border-width: 0px;
     border-style: solid;
-    border-color: #11111b;
+    border-color: @crust;
 }
 
 tooltip label{
-    color: #2b2b2c;
-}
-
-#workspaces button {
-    padding: 5px;
-    color: #313244;
-    margin-right: 5px;
-}
-
-#workspaces button.active {
-    /*color: #a6adc8;*/
-    font-weight: bold;
-}
-
-#workspaces button.focused {
-    color: #a6adc8;
-    background: #eba0ac;
-    border-radius: 10px;
-}
-
-#workspaces button.urgent {
-    color: #11111b;
-    background: #a6e3a1;
-    border-radius: 10px;
-}
-
-#workspaces button:hover {
-    background: @pink;/*#11111b;*/
-    color: @text;/*#cdd6f4;*/
-    border-radius: 10px;
+    color: #cdd6f4;
+    background-color: transparent;
 }
 
 #custom-launch_wofi,
@@ -61,6 +37,8 @@ tooltip label{
 #custom-light_dark,
 #custom-power_btn,
 #custom-power_profile,
+#custom-date,
+#custom-donotdisturb,
 #custom-weather,
 #window,
 #cpu,
@@ -71,80 +49,125 @@ tooltip label{
 #battery,
 #pulseaudio,
 #network,
-#pulseaudio.microphone,
 #tray,
+#disk,
+#custom-lock_screen,
 #temperature,
-#workspaces,
-#custom-date,
-#backlight {
-    background: @base;
-    opacity: 0.8;
+#brightness,
+#pulseaudio.microphone,
+#backlight,
+#workspaces {
+    background: alpha(@surface0, 0.9);
+    /*opacity: 1;*/
     padding: 0px 10px;
-    margin: 8px 0px;
-    border: 0px;
-    color: @text;
+    margin: 4px 0px;
+    color: @text
 }
 
-#custom-light_dark, #custom-launch_wofi, #cpu, #battery {
+#custom-light_dark, #battery, #custom-launch_wofi, #cpu {
     border-radius: 10px 0px 0px 10px;
-    margin-left: 4px;
+    margin-left: 3px;
 }
 
-#custom-power_btn, #tray, #workspaces, #temperature, #window {
+#tray, #window, #custom-power_btn, #temperature {
     border-radius: 0px 10px 10px 0px;
-    margin-right: 4px;
+    margin-right: 3px;
 }
 
 #temperature.critical {
-    color: #e92d4d;
+    color: @maroon;
 }
 
-
-#workspaces {
-    padding-right: 0px;
-    padding-left: 5px;
-}
-
-#custom-power_profile {
-    border-left: 0px;
-    border-right: 0px;
-}
-
-#workspaces {
-    border-radius: 10px;
-    margin-left: 20px;
+#window {
+    font-weight: bold;
     margin-right: 20px;
 }
 
 #custom-launch_wofi {
-    color: #407cdd;
-    margin-left: 10px;
+    color: @blue;
     border-right: 0px;
+    margin-left: 4px;
 }
 
 #pulseaudio {
+    /*color: @blue;*/
     border-left: 0px;
     border-right: 0px;
 }
 
 #pulseaudio.microphone {
+    /*color: @peach;*/
     border-left: 0px;
     border-right: 0px;
 }
 
 #battery {
-    color: #1d7715;
+    /*color: @green;*/
     border-left: 0px;
 }
 
-#custom-power_btn {
-    background-color: @maroon;
+#battery.charging {
+    color: @sky;
+    /*background-color: @sky;*/
+}
+
+#battery.warning:not(.charging) {
     color: @base;
-    margin-right: 10px;
+    background-color: @yellow;
+}
+
+#battery.warning.charging {
+   color: @base;
+   background-color: @sky;
+}
+
+#battery.critical:not(.charging) {
+    color: @base;
+    background-color: @maroon;
+}
+
+#battery.critical.charging {
+    color: @base;
+    background-color: @sky;
 }
 
 #window {
-    color: @text;
-    background-color: @surface0;
+    background-color: alpha(@surface1, 0.95);
+}
+
+#custom-power_btn {
+    background-color: @red;
+    color: @base;
+    margin-right: 4px;
+}
+
+#workspaces button {
+    padding: 3px 6px;
+    margin-right: 3px;
+    margin-left: 3px;
+    background: transparent;
+    color: @base;
+}
+
+#workspaces button.active {
     font-weight: bold;
+}
+
+#workspaces button.focused {
+}
+
+#workspaces button.urgent {
+}
+
+#workspaces button:hover {
+    background: alpha(@pink, 0.9);
+   /* border-radius: 12px 12px 12px 12px;*/
+}
+
+#workspaces {
+    background: alpha(@text, 1);
+    padding-right: 5px;
+    padding-left: 5px;
+    border-radius: 12px;
+
 }

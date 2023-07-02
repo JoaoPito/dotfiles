@@ -111,24 +111,46 @@ export NVM_DIR="$HOME/.nvm"
 # Include installed pip packages to PATH
 export PATH="$PATH:/home/joaopito/.local/bin"
 
+# -- Pomodoro Timer --
+
 # study stream aliases
 # Requires https://github.com/caarlos0/timer to be installed. spd-say should ship with your distro
 
 declare -A pomo_options
 pomo_options["work"]="60"
 pomo_options["break"]="10"
+pomo_options["long break"]="20"
+
+POMO_TITLE="🍅 pomodoro timer"
 
 pomodoro () {
   if [ -n "$1" -a -n "${pomo_options["$1"]}" ]; then
   val=$1
-  echo $val | lolcat
-  timer ${pomo_options["$val"]}m
-  spd-say -l ENG "'$val' session done" 
+  echo "$val session start - ${pomo_options["$val"]}m" | lolcat
+  timer ${pomo_options["$val"]}m -f -n "$val session. Don't give up now! 😸" # -f makes it fullscreen
+  # spd-say -l ENG "'$val' session done"
+  notify-send ${POMO_TITLE} "$val timer is up!"
+  mpv /usr/share/sounds/freedesktop/stereo/complete.oga > /dev/null # emits sound, useful for when your notifications are muted (my case)
+  echo "$val session done" | lolcat
   fi
+}
+
+pomodoroSessions () {
+    echo "Starting "$1" sessions."
+    for i in $(seq $1); do
+	notify-send ${POMO_TITLE} "Starting next work session. \nKeep going! 😊 \n<b>> session $i of $1</b>"
+        pomodoro 'work'
+        pomodoro 'break'
+	sleep 1s
+    done
+    notify-send ${POMO_TITLE} "\n<b>🥳 Congratulations!!!</b>\nYou completed $1 sessions today. Good Work!"
+    echo " congrats!!  ._.)/\\(._.  thx"
 }
 
 alias wo="pomodoro 'work'"
 alias br="pomodoro 'break'"
 
-export DOTNET_ROOT=$HOME/.dotnet
-export PATH=$PATH:$HOME/.dotnet:$HOME/.dotnet/tools
+alias pomo="pomodoroSessions 3"
+
+#export DOTNET_ROOT=$HOME/.dotnet
+#export PATH=$PATH:$HOME/.dotnet:$HOME/.dotnet/tools

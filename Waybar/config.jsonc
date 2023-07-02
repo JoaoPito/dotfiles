@@ -6,10 +6,10 @@
     "exclusive": true,
     "passthrough": false,
     "gtk-layer-shell": true,
-    "height": 50,
-    "modules-left": ["custom/launch_wofi","clock","custom/date", "custom/updates", "hyprland/window"],
+    "height": 35,
+    "modules-left": ["custom/launch_wofi","clock","custom/date", "custom/donotdisturb", "custom/updates", "hyprland/window"],
     "modules-center": ["wlr/workspaces"],
-    "modules-right": ["cpu", "memory", "disk", "temperature","battery","backlight","pulseaudio","pulseaudio#microphone","tray","custom/light_dark", "custom/lock_screen", "custom/power_btn"],
+    "modules-right": ["battery","pulseaudio","pulseaudio#microphone","backlight","tray","custom/light_dark", "custom/lock_screen", "custom/power_btn"],
     
     "hyprland/window": {
         "format": "{}"
@@ -68,8 +68,8 @@
         "format": "{}",
         "exec": "~/.config/waybar/scripts/update-sys",
         "on-click": "~/.config/waybar/scripts/update-sys update",
-        "interval": 300,
-        "tooltip": true
+        "interval": 36000,
+        "tooltip": false
     },
 
     "wlr/workspaces": {
@@ -98,7 +98,7 @@
     
     "custom/date": {
         "exec": "date +\"%a, %d de %B\"",
-        "interval": 36000,
+        "interval": 7200,
         "format": "{}", 
     },
 
@@ -117,25 +117,25 @@
     },
 
     "clock": {
-        "format": "{:%I:%M %p}",
+        "format": "{:%H:%M}",
         "tooltip": true,
         "tooltip-format": "{: %A, %B %e %Y}"
     },
 
     "backlight": {
         "device": "intel_backlight",
-        "format": "{icon} {percent}%",
+        "format": "{icon}",
         "format-icons": ["󰃞", "󰃟", "󰃠"],
         "on-scroll-up": "brightnessctl set 1%+",
         "on-scroll-down": "brightnessctl set 1%-",
-        "min-length": 6
+        "min-length": 1
     },
 
     "battery": {
         "states": {
             "good": 95,
             "warning": 50,
-            "critical": 15
+            "critical": 25
         },
         "format": "{icon} {capacity}%",
         "format-charging": " {capacity}%",
@@ -180,5 +180,19 @@
         "critical-threshold": 90,
         "format-critical": " {temperatureC}°C",
         "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
+    },
+
+    "custom/notificationcenter": {
+        "on-click": "sh -c '(kill -s USR1 $(pidof deadd-notification-center) && sleep 0.2s; deadd-notification-center)' & disown",
+        "format": "󰎟",
+	"tooltip-format": "Show all notifications"
+    },
+
+    "custom/donotdisturb": {
+	"on-click": "~/.config/hypr/scripts/do-not-disturb.sh toggle",
+	"exec": "~/.config/hypr/scripts/do-not-disturb.sh",
+	"format": "{}",
+	"tooltip": false,
+	"interval": 5
     }
 }

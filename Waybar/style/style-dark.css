@@ -1,4 +1,4 @@
-@import "mocha.css";
+@import "frappe.css";
 
 * {
     border: none;
@@ -12,7 +12,7 @@
 
 window#waybar {
     /*background: @base;*/
-    background-color: alpha(@base, 0.5);
+    background-color: alpha(@base, 0.4);
     color: @text;
 
     border-radius: 12px 12px 12px 12px;
@@ -38,6 +38,7 @@ tooltip label{
 #custom-power_btn,
 #custom-power_profile,
 #custom-date,
+#custom-donotdisturb,
 #custom-weather,
 #window,
 #cpu,
@@ -55,11 +56,12 @@ tooltip label{
 #brightness,
 #pulseaudio.microphone,
 #backlight,
+#custom-notificationcenter,
 #workspaces {
     background: alpha(@surface0, 0.9);
-    opacity: 1;
+    /*opacity: 1;*/
     padding: 0px 10px;
-    margin: 8px 0px;
+    margin: 4px 0px;
     color: @text
 }
 
@@ -85,17 +87,17 @@ tooltip label{
 #custom-launch_wofi {
     color: @blue;
     border-right: 0px;
-    margin-left: 8px;
+    margin-left: 4px;
 }
 
 #pulseaudio {
-    color: @blue;
+    /*color: @blue;*/
     border-left: 0px;
     border-right: 0px;
 }
 
 #pulseaudio.microphone {
-    color: @peach;
+    /*color: @peach;*/
     border-left: 0px;
     border-right: 0px;
 }
@@ -125,24 +127,25 @@ tooltip label{
     background-color: @maroon;
 }
 
+#battery.critical.charging {
+    color: @base;
+    background-color: @sky;
+}
+
 #window {
     background-color: alpha(@surface1, 0.95);
 }
 
 #custom-power_btn {
     background-color: @red;
-    color: @mantle;
-    margin-right: 8px;
-}
-
-#custom-power_btn.hover {
-	background-color: #ffffff;
+    color: @base;
+    margin-right: 4px;
 }
 
 #workspaces button {
     padding: 3px 6px;
-    margin-right: 4px;
-    margin-left: 4px;
+    margin-right: 3px;
+    margin-left: 3px;
     background: transparent;
     color: @base;
 }
@@ -158,14 +161,14 @@ tooltip label{
 }
 
 #workspaces button:hover {
-    background: alpha(@pink, 0.85);
+    background: alpha(@pink, 0.9);
    /* border-radius: 12px 12px 12px 12px;*/
 }
 
 #workspaces {
-    background: alpha(@text, 0.8);
+    background: alpha(@text, 1);
     padding-right: 5px;
     padding-left: 5px;
-    border-radius: 12px 12px 12px 12px;
+    border-radius: 12px;
 
 }
