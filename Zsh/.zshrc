@@ -129,7 +129,7 @@ pomodoro () {
   echo "$val session start - ${pomo_options["$val"]}m" | lolcat
   timer ${pomo_options["$val"]}m -f -n "$val session. Don't give up now! 😸" # -f makes it fullscreen
   # spd-say -l ENG "'$val' session done"
-  notify-send ${POMO_TITLE} "$val timer is up!"
+  notify-send ${POMO_TITLE} "$val timer is up.\nLet's keep going!"
   mpv /usr/share/sounds/freedesktop/stereo/complete.oga > /dev/null # emits sound, useful for when your notifications are muted (my case)
   echo "$val session done" | lolcat
   fi
@@ -154,3 +154,13 @@ alias pomo="pomodoroSessions 3"
 
 #export DOTNET_ROOT=$HOME/.dotnet
 #export PATH=$PATH:$HOME/.dotnet:$HOME/.dotnet/tools
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Command for changing wallpaper image
+# Usage: set-wallpaper PATH [-dark]
+set-wallpaper () {
+	echo "Setting Hyprland $2 mode wallpaper to $1"
+	cp -f $1 ~/.config/hypr/wallpaper$2.jpg
+	echo "Setting sddm $2 mode wallpaper to $1"
+	cp -f $1 /usr/share/sddm/themes/sdt/Backgrounds/wallpaper$2.jpg
+}
