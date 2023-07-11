@@ -1,0 +1,190 @@
+@import "latte.css";
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 16px;
+    min-height: 0;
+    background: transparent;
+}
+
+window#waybar {
+    background-color: alpha(@base, 0.25);
+    color: @text;
+
+    border-radius: 12px 12px 12px 12px;
+}
+
+tooltip {
+    background: @base;
+    opacity: 0.8;
+    border-radius: 12px;
+    border-width: 0px;
+    border-style: solid;
+    border-color: @crust;
+    color: @text;
+}
+
+tooltip label{
+    color: @text;
+    background-color: transparent;
+}
+
+#custom-launch_wofi,
+#custom-lock_screen,
+#custom-light_dark,
+#custom-power_btn,
+#custom-power_profile,
+#custom-date,
+#custom-donotdisturb,
+#custom-weather,
+#window,
+#cpu,
+#disk,
+#custom-updates,
+#memory,
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#tray,
+#disk,
+#custom-lock_screen,
+#temperature,
+#brightness,
+#pulseaudio.microphone,
+#backlight,
+#custom-notificationcenter,
+#custom-playerctlplay,
+#custom-playerctlprev,
+#custom-playerctlnext,
+#custom-playerlabel,
+#workspaces {
+    background: alpha(@surface0, 0.9);
+    padding: 0px 10px;
+    margin: 4px 0px;
+    color: @text
+}
+
+/* Left corners */
+#custom-light_dark, 
+#battery,
+#custom-launch_wofi,
+#custom-playerlabel,
+#cpu {
+    border-radius: 10px 0px 0px 10px;
+    margin-left: 3px;
+}
+
+/* Right corners */
+#tray,
+#window, 
+#custom-power_btn, 
+#temperature, 
+#custom-playerctlnext {
+    border-radius: 0px 10px 10px 0px;
+    margin-right: 3px;
+}
+
+#temperature.critical {
+    color: @maroon;
+}
+
+#window {
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+#custom-playerlabel {
+    margin-left: 20px;
+}
+
+#custom-launch_wofi {
+    color: @pink;
+    border-right: 0px;
+    margin-left: 4px;
+}
+
+#pulseaudio {
+    border-left: 0px;
+    border-right: 0px;
+}
+
+#pulseaudio.microphone {
+    border-left: 0px;
+    border-right: 0px;
+}
+
+/* Battery indicator colors */
+#battery {
+    border-left: 0px;
+}
+
+#battery.charging {
+    color: @sky;
+}
+
+#battery.warning:not(.charging) {
+    color: @base;
+    background-color: @yellow;
+}
+
+#battery.warning.charging {
+   color: @base;
+   background-color: @sky;
+}
+
+#battery.critical:not(.charging) {
+    color: @base;
+    background-color: @maroon;
+}
+
+#battery.critical.charging {
+    color: @base;
+    background-color: @sky;
+}
+
+/* Special bkg */
+#window,
+#custom-playerlabel
+{
+    background-color: alpha(@surface1, 0.95);
+}
+
+#custom-power_btn {
+    background-color: @pink;
+    color: @base;
+    margin-right: 4px;
+}
+
+#workspaces button {
+    padding: 3px 6px;
+    margin-right: 3px;
+    margin-left: 3px;
+    background: transparent;
+    color: alpha(@text, 0.75);
+}
+
+#workspaces button.active {
+    font-weight: bold;
+    color: @text;
+}
+
+#workspaces button.focused {
+}
+
+#workspaces button.urgent {
+}
+
+#workspaces button:hover {
+    background: alpha(@overlay1, 0.5);
+}
+
+#workspaces {
+    background: alpha(@surface2, 1);
+    padding-right: 5px;
+    padding-left: 5px;
+    border-radius: 12px;
+
+}

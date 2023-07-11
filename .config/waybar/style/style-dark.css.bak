@@ -1,0 +1,172 @@
+@import "frappe.css";
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font";
+    /*font-weight: bold;*/
+    font-size: 16px;
+    min-height: 0;
+    background: transparent;
+}
+
+window#waybar {
+    background-color: alpha(@base, 0.4);
+    color: @text;
+
+    border-radius: 12px 12px 12px 12px;
+}
+
+tooltip {
+    background: @base;
+    opacity: 0.8;
+    border-radius: 12px;
+    border-width: 0px;
+    border-style: solid;
+    border-color: @crust;
+}
+
+tooltip label{
+    color: #cdd6f4;
+    background-color: transparent;
+}
+
+#custom-launch_wofi,
+#custom-lock_screen,
+#custom-light_dark,
+#custom-power_btn,
+#custom-power_profile,
+#custom-date,
+#custom-donotdisturb,
+#custom-weather,
+#window,
+#cpu,
+#disk,
+#custom-updates,
+#memory,
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#tray,
+#disk,
+#custom-lock_screen,
+#temperature,
+#brightness,
+#pulseaudio.microphone,
+#backlight,
+#custom-notificationcenter,
+#workspaces {
+    background: alpha(@surface0, 0.9);
+    /*opacity: 1;*/
+    padding: 0px 10px;
+    margin: 4px 0px;
+    color: @text
+}
+
+#custom-light_dark, #battery, #custom-launch_wofi, #cpu {
+    border-radius: 10px 0px 0px 10px;
+    margin-left: 3px;
+}
+
+#tray, #window, #custom-power_btn, #temperature {
+    border-radius: 0px 10px 10px 0px;
+    margin-right: 3px;
+}
+
+#temperature.critical {
+    color: @maroon;
+}
+
+#window {
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+#custom-launch_wofi {
+    color: @blue;
+    border-right: 0px;
+    margin-left: 4px;
+}
+
+#pulseaudio {
+    /*color: @blue;*/
+    border-left: 0px;
+    border-right: 0px;
+}
+
+#pulseaudio.microphone {
+    /*color: @peach;*/
+    border-left: 0px;
+    border-right: 0px;
+}
+
+#battery {
+    /*color: @green;*/
+    border-left: 0px;
+}
+
+#battery.charging {
+    color: @sky;
+    /*background-color: @sky;*/
+}
+
+#battery.warning:not(.charging) {
+    color: @base;
+    background-color: @yellow;
+}
+
+#battery.warning.charging {
+   color: @base;
+   background-color: @sky;
+}
+
+#battery.critical:not(.charging) {
+    color: @base;
+    background-color: @maroon;
+}
+
+#battery.critical.charging {
+    color: @base;
+    background-color: @sky;
+}
+
+#window {
+    background-color: alpha(@surface1, 0.95);
+}
+
+#custom-power_btn {
+    background-color: @red;
+    color: @base;
+    margin-right: 4px;
+}
+
+#workspaces button {
+    padding: 3px 6px;
+    margin-right: 3px;
+    margin-left: 3px;
+    background: transparent;
+    color: @base;
+}
+
+#workspaces button.active {
+    font-weight: bold;
+}
+
+#workspaces button.focused {
+}
+
+#workspaces button.urgent {
+}
+
+#workspaces button:hover {
+    background: alpha(@pink, 0.9);
+}
+
+#workspaces {
+    background: alpha(@text, 1);
+    padding-right: 5px;
+    padding-left: 5px;
+    border-radius: 12px;
+
+}
