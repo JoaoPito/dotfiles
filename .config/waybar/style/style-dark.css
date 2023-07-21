@@ -1,4 +1,7 @@
-@import "frappe.css";
+@import "mocha.css";
+
+@define-color white #eff1f5;
+@define-color white_overlay1 #8c8fa1; 
 
 * {
     border: none;
@@ -11,7 +14,7 @@
 }
 
 window#waybar {
-    background-color: alpha(@text, 0.1);
+    background-color: alpha(@white_overlay1, 0.1);
     color: @text;
 
     border-radius: 12px 12px 12px 12px;
@@ -27,8 +30,8 @@ tooltip {
 }
 
 tooltip label{
-    color: #cdd6f4;
-    background-color: transparent;
+    color: @text;
+    background-color: alpha(@base, 0.8);
 }
 
 #custom-launch_wofi,
@@ -61,11 +64,12 @@ tooltip label{
 #custom-playerctlnext,
 #custom-playerlabel,
 #workspaces {
-    background: alpha(@surface0, 0.9);
-    /*opacity: 1;*/
-    padding: 0px 10px;
+    background: alpha(@surface0, 0.75);
     margin: 4px 0px;
-    color: @text
+    color: @text;
+    padding: 0px;
+    padding-right: 10px;
+    padding-left: 8px; /* this is correcting for icons that are slightly disaligned */
 }
 
 /* Left corners */
@@ -150,42 +154,53 @@ tooltip label{
 #window,
 #custom-playerlabel
 {
-    background-color: alpha(@surface1, 0.95);
+    background-color: alpha(@surface1, 0.75);
+    /* background-color: alpha(@surface1, 0.95); */
 }
 
 #custom-power_btn {
-    background-color: @pink;
+    background-color: alpha(@pink, 0.9);
     color: @base;
     margin-right: 4px;
 }
 
+#workspaces {
+    background: alpha(@surface2, 0.75);
+    /*background: alpha(@surface2, 0.9);*/
+    padding-right: 5px;
+    padding-left: 5px;
+    border-radius: 12px;
+}
+
 #workspaces button {
-    padding: 3px 6px;
-    margin-right: 3px;
-    margin-left: 3px;
+    padding: 2px 6px;
+    /*margin-right: 3px;
+    margin-left: 3px; */
+    margin: 0px 2px;
+    border-radius: 12px;
     background: transparent;
     color: alpha(@text, 0.75);
 }
 
 #workspaces button.active {
     font-weight: bold;
-    color: @text;
+    color: @surface0;
+    background: alpha(@white, 0.85);
+    padding: 2px 14px;
+
 }
 
 #workspaces button.focused {
 }
 
 #workspaces button.urgent {
-	color: @red;
+	background: alpha(@maroon, 0.5);
 }
 
 #workspaces button:hover {
-    background: alpha(@overlay1, 0.4);
+    background: alpha(@pink, 0.75);
+    color: alpha(@surface1, 0.75);
+    /*background: alpha(@overlay1, 0.4);*/
 }
 
-#workspaces {
-    background: alpha(@surface2, 1);
-    padding-right: 5px;
-    padding-left: 5px;
-    border-radius: 12px;
-}
+

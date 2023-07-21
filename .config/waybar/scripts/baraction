@@ -12,7 +12,17 @@ fi
 ln -sf ~/.config/waybar/style/style$SWITCHTO.css ~/.config/waybar/style.css
 
 #set the wofi theme
-ln -sf ~/.config/wofi/style/style$SWITCHTO.css ~/.config/wofi/style.css
+#ln -sf ~/.config/wofi/style/style$SWITCHTO.css ~/.config/wofi/style.css
+
+#set rofi theme
+ln -sf /home/joaopito/.config/rofi/themes/theme$SWITCHTO.rasi /home/joaopito/.config/rofi/theme.rasi
+
+#set the kitty theme
+if [ $THEMEIS == "dark.css" ]; then
+	kitty +kitten themes --reload-in=all Catppuccin-Frappe
+else
+	kitty +kitten themes --reload-in=all Catppuccin-Mocha
+fi
 
 #set the xfce theme
 xfconf-query -c xsettings -p /Net/ThemeName -s "Adwaita$SWITCHTO"
@@ -27,9 +37,8 @@ swww img ~/.config/hypr/wallpaper$SWITCHTO.jpg --transition-fps 60 --transition-
 
 #update the sddm image
 # sddm is going to use the same wallpaper as the desktop
-#ln -sf /home/joaopito/.config/hypr/wallpaper$SWITCHTO.jpg /usr/share/sddm/themes/sdt/wallpaper.jpg
-#ln -sf /home/joaopito/.config/hypr/wallpaper$SWITCHTO.jpg /usr/share/sddm/themes/dawn/wallpaper.jpg
 ln -sf /usr/share/sddm/themes/sdt/Backgrounds/wallpaper$SWITCHTO.jpg /usr/share/sddm/themes/sdt/wallpaper.jpg
+ln -sf /usr/share/sddm/themes/Andromeda/conf/theme$SWITCHTO.conf /usr/share/sddm/themes/Andromeda/theme.conf
 
 #restart the waybar
 killall -SIGUSR2 waybar
