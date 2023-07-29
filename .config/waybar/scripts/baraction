@@ -11,29 +11,58 @@ fi
 #set the waybar theme
 ln -sf ~/.config/waybar/style/style$SWITCHTO.css ~/.config/waybar/style.css
 
+#change the background image and be cool about it ;)
+swww img ~/.config/hypr/wallpaper$SWITCHTO.jpg --transition-fps 60 --transition-type wipe --transition-duration 2
+
 #set the wofi theme
 #ln -sf ~/.config/wofi/style/style$SWITCHTO.css ~/.config/wofi/style.css
 
 #set rofi theme
 ln -sf /home/joaopito/.config/rofi/themes/theme$SWITCHTO.rasi /home/joaopito/.config/rofi/theme.rasi
+ln -sf /home/joaopito/.config/hypr/wallpaper$SWITCHTO.jpg /home/joaopito/.config/rofi/wallpaper.jpg
 
 #set the kitty theme
-if [ $THEMEIS == "dark.css" ]; then
-	kitty +kitten themes --reload-in=all Catppuccin-Frappe
-else
+if [ $SWITCHTO == "-dark" ]; then
 	kitty +kitten themes --reload-in=all Catppuccin-Mocha
+else
+	kitty +kitten themes --reload-in=all Catppuccin-Frappe
+fi
+
+# set the xfce and gtk themes
+THEME_DARK="Catppuccin-Mocha-Standard-Pink-dark"
+THEME_LIGHT="Catppuccin-Latte-Standard-Pink-light"
+ICON_DARK="Tela-circle-pink-dark"
+ICON_LIGHT="Tela-circle-pink-light"
+
+if [ $SWITCHTO == "-dark" ]; then
+	#set the xfce theme
+	#xfconf-query -c xsettings -p /Net/ThemeName -s "Adwaita$SWITCHTO"
+	#xfconf-query -c xsettings -p /Net/IconThemeName -s "Adwaita$SWITCHTO"
+	xfconf-query -c xsettings -p /Net/ThemeName -s $THEME_DARK
+	xfconf-query -c xsettings -p /Net/IconThemeName -s $ICON_DARK
+
+	#set the GTK theme
+	gsettings set org.gnome.desktop.interface gtk-theme $THEME_DARK
+	gsettings set org.gnome.desktop.interface icon-theme $ICON_DARK
+
+else
+	xfconf-query -c xsettings -p /Net/ThemeName -s $THEME_LIGHT
+	xfconf-query -c xsettings -p /Net/IconThemeName -s $ICON_LIGHT
+	
+	#set the GTK theme
+	gsettings set org.gnome.desktop.interface gtk-theme $THEME_LIGHT
+	gsettings set org.gnome.desktop.interface icon-theme $ICON_LIGHT
 fi
 
 #set the xfce theme
-xfconf-query -c xsettings -p /Net/ThemeName -s "Adwaita$SWITCHTO"
-xfconf-query -c xsettings -p /Net/IconThemeName -s "Adwaita$SWITCHTO"
+#xfconf-query -c xsettings -p /Net/ThemeName -s "Adwaita$SWITCHTO"
+#xfconf-query -c xsettings -p /Net/IconThemeName -s "Adwaita$SWITCHTO"
 
 #set the GTK theme
-gsettings set org.gnome.desktop.interface gtk-theme "Adwaita$SWITCHTO"
-gsettings set org.gnome.desktop.interface icon-theme "Adwaita$SWITCHTO"
+#gsettings set org.gnome.desktop.interface gtk-theme "Adwaita$SWITCHTO"
+#gsettings set org.gnome.desktop.interface icon-theme "Adwaita$SWITCHTO"
 
-#change the background image and be cool about it ;)
-swww img ~/.config/hypr/wallpaper$SWITCHTO.jpg --transition-fps 60 --transition-type wipe --transition-duration 2
+
 
 #update the sddm image
 # sddm is going to use the same wallpaper as the desktop

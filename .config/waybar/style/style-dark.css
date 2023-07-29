@@ -7,7 +7,6 @@
     border: none;
     border-radius: 0;
     font-family: "JetBrainsMono Nerd Font";
-    /*font-weight: bold;*/
     font-size: 16px;
     min-height: 0;
     background: transparent;
@@ -21,8 +20,7 @@ window#waybar {
 }
 
 tooltip {
-    background: @base;
-    opacity: 0.8;
+    background: alpha(@base,0.8);
     border-radius: 12px;
     border-width: 0px;
     border-style: solid;
@@ -32,6 +30,14 @@ tooltip {
 tooltip label{
     color: @text;
     background-color: alpha(@base, 0.8);
+}
+
+#tray * {
+    border-radius: 18px;
+}
+
+#tray menu {
+    background-color: alpha(@surface0, 0.95);
 }
 
 #custom-launch_wofi,
@@ -63,6 +69,7 @@ tooltip label{
 #custom-playerctlprev,
 #custom-playerctlnext,
 #custom-playerlabel,
+#taskbar,
 #workspaces {
     background: alpha(@surface0, 0.75);
     margin: 4px 0px;
@@ -121,6 +128,10 @@ tooltip label{
     border-right: 0px;
 }
 
+#tray > .needs-attention {
+	background: @maroon;
+}
+
 /* Battery indicator colors */
 #battery {
     border-left: 0px;
@@ -173,10 +184,10 @@ tooltip label{
 }
 
 #workspaces button {
-    padding: 2px 6px;
+    padding: 0px 6px;
     /*margin-right: 3px;
     margin-left: 3px; */
-    margin: 0px 2px;
+    margin: 1px 2px;
     border-radius: 12px;
     background: transparent;
     color: alpha(@text, 0.75);
@@ -186,7 +197,8 @@ tooltip label{
     font-weight: bold;
     color: @surface0;
     background: alpha(@white, 0.85);
-    padding: 2px 14px;
+    padding: 0px 16px;
+    /*padding: 2px 14px;*/
 
 }
 
@@ -194,12 +206,15 @@ tooltip label{
 }
 
 #workspaces button.urgent {
-	background: alpha(@maroon, 0.5);
+	color: alpha(@red, 1);
+	background: alpha(@surface1, 0.75);
+	padding: 0px 10px;
+	font-weight: bold;
 }
 
 #workspaces button:hover {
-    background: alpha(@pink, 0.75);
-    color: alpha(@surface1, 0.75);
+    background: alpha(@pink, 0.9);
+    color: alpha(@surface0, 0.75);
     /*background: alpha(@overlay1, 0.4);*/
 }
 

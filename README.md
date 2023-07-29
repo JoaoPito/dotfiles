@@ -1,6 +1,8 @@
 These are the dotfiles for my setup.
 It mainly uses Catppuccin for the theming (**Mocha** for dark mode and **Latte** for light mode)
 
+>[!ATTENTION]
+
 ## Files
 **Go to "~/.config/":**
 - Hyprland

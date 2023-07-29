@@ -17,7 +17,7 @@
 
     "custom/launch_wofi": {
         "format": "",
-        "on-click": "pkill wofi; wofi -n",
+        "on-click": "pkill wofi; rofi -modi run -show drun",
         "tooltip": false
     },
 
@@ -62,6 +62,23 @@
         "tooltip": true,
         "tooltip-format": "Memory - {used:0.1f}GB used",
         "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
+    },
+
+    "wlr/taskbar": {
+	"format": "{icon}",
+	"icon-size": 18,
+	"icon-theme": "Tela-circle-dracula",
+        "spacing": 0,
+	"tooltip-format": "{title}",
+	"on-click": "activate",
+	"on-click-middle": "close",
+	"ignore-list": [
+		"Alacritty",
+		"albert"
+	],
+	"app_ids-mapping": {
+		"firefoxdeveloperedition": "firefox-developer-edition"
+	}
     },
 
     "custom/updates": {
