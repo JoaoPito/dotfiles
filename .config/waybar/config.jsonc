@@ -17,7 +17,7 @@
 
     "custom/launch_wofi": {
         "format": "",
-        "on-click": "pkill wofi; rofi -modi run -show drun",
+        "on-click": "pkill rofi; rofi -modi run -show drun",
         "tooltip": false
     },
 
@@ -98,11 +98,6 @@
 	    "sort-by-name": false,
 	    "sort-by-coordinates": false,
 	    "format-icons": {
-	    //	"1": "web",
-	    //	"2": "dev",
-	    //	"3": "study",
-	    //	"4": "terminal",
-	    //	"5": "music"
 	    	"urgent": "",
 	    	"active": "",
 	    	"default": "󰧞"
@@ -193,12 +188,6 @@
         "critical-threshold": 90,
         "format-critical": " {temperatureC}°C",
         "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
-    },
-
-    "custom/notificationcenter": {
-        "on-click": "sh -c '(kill -s USR1 $(pidof deadd-notification-center) && sleep 0.2s; deadd-notification-center)' & disown",
-        "format": "󰎟",
-	"tooltip-format": "Show all notifications"
     },
 
 	// Credits: github.com/JoaoPito

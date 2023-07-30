@@ -1,0 +1,41 @@
+# ---- Colors ----
+include ./frappe.conf
+#include ./mountain.conf
+
+# ---- Behaviour ----
+font_family      jetbrains mono nerd font
+font_size        12
+bold_font        auto
+italic_font      auto
+bold_italic_font auto
+mouse_hide_wait  2.0
+cursor_shape     block
+# url_color        #0087bd
+url_style        dotted
+#Close the terminal without confirmation
+confirm_os_window_close 0
+background_opacity 0.85
+
+# ---- Keyboard ----
+# Create window
+map ctrl+f5 launch --location=hsplit # Create a new window splitting one above the other
+map ctrl+f6 launch --location=vsplit # Create a new window splitting side by side
+map ctrl+f7 layout_action rotate # Rotate the current split
+
+# Move the active window
+map ctrl+alt+i move_window up
+map ctrl+alt+j move_window left
+map ctrl+alt+l move_window right
+map ctrl+alt+k move_window down
+
+# Switch focus to another window
+map ctrl+left neighboring_window left
+map ctrl+right neighboring_window right
+map ctrl+up neighboring_window up
+map ctrl+down neighboring_window down
+
+
+# BEGIN_KITTY_THEME
+# Catppuccin-Frappe
+include current-theme.conf
+# END_KITTY_THEME
