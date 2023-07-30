@@ -43,6 +43,7 @@ It mainly uses Catppuccin for the theming (**Mocha** for dark mode and **Latte**
   - Line 15: Change "Modo não perturbe" to "Do not disturb mode" and "Desativado" to "Deactivated"
 
 ## Credits
+- [Sol does tech - Hyprland v2 config](https://www.youtube.com/watch?v=8GmpCwBqHCA&t=0s&ab_channel=SolDoesTech) - In the end, this setup is just a modified version of his
 - [Catppuccin](https://github.com/catppuccin/catppuccin) - Basically all the colors here are from some variant of Catppuccin
-- [Hyprdots](https://github.com/prasanthrangan/hyprdots/tree/main) - I just stole hyperdots config for rofi and modified just a little, and also based my header bar on theirs a little bit
+- [Hyprdots](https://github.com/prasanthrangan/hyprdots/tree/main) - I stole hyperdots config for rofi and modified just a little, and also based my header bar on theirs a little bit
 
