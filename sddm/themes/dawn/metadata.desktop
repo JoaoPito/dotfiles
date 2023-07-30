@@ -1,0 +1,14 @@
+[SddmGreeterTheme]
+Name=Dawn
+Description=A colorful minimalist theme for the Simple Desktop Display Manager
+Author=Alberto Salvia Novella
+License=GPL-3.0-or-later
+Type=sddm-theme
+Version=1
+Website=https://gitlab.com/es20490446e/sddm-theme-dawn
+Screenshot=Preview.png
+MainScript=Main.qml
+ConfigFile=theme.conf
+TranslationsDirectory=translations
+Theme-Id=dawn
+Theme-API=2.0
